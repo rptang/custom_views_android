@@ -9,3 +9,4 @@ Android native control widget can not meet the everything during developing proj
 #### Rendering show
 ![image](https://github.com/rptang/custom_views_android/blob/master/switch_on.png)
 ![image](https://github.com/rptang/custom_views_android/blob/master/switch_off.png)
+<font color=blue size=6 >dddddd</font>
