@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -15,15 +16,53 @@ import android.view.View;
 
 public class SwitchButton extends View {
 
+    private static final String TAG = "SwitchButton";
+
+    /**
+     * thumbPaint:滑动的按钮画笔
+     * trackPaint:轨道画笔
+     */
     private Paint thumbPaint, trackPaint;
+    /**
+     * 整个控件的宽和高，从传入的图片中测量获取
+     */
     private int width, height;
+    /**
+     * 按钮的坐标（X，Y）
+     */
     private float thumbX, thumbY;
+    /**
+     * 分别是：按钮-开，按钮-关，轨道-开，轨道-关
+     */
     private Drawable onThumbDrawable, offThumbDrawable, onTrackDrawable, offTrackDrawable;
+    /**
+     * 开关的状态：默认是关闭
+     */
     private boolean isClosed = true;
+    /**
+     * 按钮是否处于移动状态
+     */
     private boolean isMoving = false;
+    /**
+     * 按钮是否可操作
+     */
     private boolean isEnable = true;
+    /**
+     * 按钮是否为点击状态
+     */
     private boolean isClicked = false;
+    /**
+     * downX:按下时，获取的X坐标
+     * moving:滑动时，获取的X坐标
+     */
     private float downX, movingX;
+    /**
+     * 辅助值，用于判断按下时，手指是否处于按钮之上
+     */
+    private float firstX;
+    /**
+     * 状态变化监听器
+     */
     private OnStateChangeListener onStateChangeListener;
 
     public SwitchButton(Context context) {
@@ -69,13 +108,20 @@ public class SwitchButton extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 isClicked = true;
-                downX = event.getX();
+                firstX = downX = event.getX();
                 break;
             case MotionEvent.ACTION_MOVE:
                 movingX = event.getX();
                 if (!isMoving) {
-                    if (downX > thumbX && downX < thumbX + onThumbDrawable.getIntrinsicWidth()) {
-                        isMoving = true;
+                    if(isClosed){
+                        if(firstX >= thumbX && firstX <= thumbX + onThumbDrawable.getIntrinsicWidth()){
+                            isMoving = true;
+                        }
+                    }else {
+                        if(firstX >= width - thumbX && firstX <= width - 2 * onThumbDrawable.getIntrinsicWidth() / width){
+
+                            isMoving = true;
+                        }
                     }
                 }
                 break;
@@ -88,16 +134,19 @@ public class SwitchButton extends View {
                         isClosed = true;
                     }
                 }else {
-                    if(isClosed){
-                        isClosed = false;
-                    }else {
-                        isClosed = true;
+                    if(movingX == 0){
+                        if(isClosed){
+                            isClosed = false;
+                        }else {
+                            isClosed = true;
+                        }
                     }
                 }
                 if(onStateChangeListener != null){
                     onStateChangeListener.stateChange(!isClosed);
                 }
                 isMoving = false;
+                movingX = 0;
                 trackPaint.setAlpha(255);
                 break;
         }
