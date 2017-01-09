@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="SwitchButton">
+        <attr name="onThumbDrawable" format="reference"></attr>
+        <attr name="offThumbDrawable" format="reference"></attr>
+        <attr name="onTrackDrawable" format="reference"></attr>
+        <attr name="offTrackDrawable" format="reference"></attr>
+        <attr name="enable" format="boolean"></attr>
+    </declare-styleable>
+
 </resources>

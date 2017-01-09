@@ -1,6 +1,7 @@
 package com.project.rptang.android.switch_button;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
@@ -9,6 +10,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.project.rptang.android.R;
 
 /**
  * Created by Stiven on 2017/1/4.
@@ -76,6 +79,12 @@ public class SwitchButton extends View {
     public SwitchButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initPaint();
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SwitchButton);
+        onThumbDrawable = array.getDrawable(R.styleable.SwitchButton_onThumbDrawable);
+        offThumbDrawable = array.getDrawable(R.styleable.SwitchButton_offThumbDrawable);
+        onTrackDrawable = array.getDrawable(R.styleable.SwitchButton_onTrackDrawable);
+        offTrackDrawable = array.getDrawable(R.styleable.SwitchButton_offTrackDrawable);
+        isEnable = array.getBoolean(R.styleable.SwitchButton_enable,true);
     }
 
     private void initPaint() {
