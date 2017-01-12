@@ -6,6 +6,12 @@ Android native control widget can not meet the everything during developing proj
 #### function implementation idea:
 
 ---
+### Second view is wheel picker
+#### function implementation idea:
+
+---
 #### Rendering show
 ![image](https://github.com/rptang/custom_views_android/blob/master/switch_on.png)
 ![image](https://github.com/rptang/custom_views_android/blob/master/switch_off.png)
+
+![image](https://github.com/rptang/custom_views_android/blob/master/number_pick.png)

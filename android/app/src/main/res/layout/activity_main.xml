@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.project.rptang.android.switch_button.SwitchButton
-            android:id="@+id/custom_switch_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            rptang:onThumbDrawable="@drawable/jianshihuamian_shuixiangwendu_on2_sel"
-            rptang:offThumbDrawable="@drawable/jianshihuamian_shuixiangwendu_off2_nor"
-            rptang:onTrackDrawable="@drawable/jianshihuamian_shuixiangwendu_on1_sel"
-            rptang:offTrackDrawable="@drawable/jianshihuamian_shuixiangwendu_off1_nor"
-            rptang:enable="true"/>
+        <!--<com.project.rptang.android.switch_button.SwitchButton-->
+            <!--android:id="@+id/custom_switch_button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--rptang:onThumbDrawable="@drawable/jianshihuamian_shuixiangwendu_on2_sel"-->
+            <!--rptang:offThumbDrawable="@drawable/jianshihuamian_shuixiangwendu_off2_nor"-->
+            <!--rptang:onTrackDrawable="@drawable/jianshihuamian_shuixiangwendu_on1_sel"-->
+            <!--rptang:offTrackDrawable="@drawable/jianshihuamian_shuixiangwendu_off1_nor"-->
+            <!--rptang:enable="true"/>-->
     </FrameLayout>
 </RelativeLayout>

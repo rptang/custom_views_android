@@ -85,6 +85,7 @@ public class SwitchButton extends View {
         onTrackDrawable = array.getDrawable(R.styleable.SwitchButton_onTrackDrawable);
         offTrackDrawable = array.getDrawable(R.styleable.SwitchButton_offTrackDrawable);
         isEnable = array.getBoolean(R.styleable.SwitchButton_enable,true);
+        array.recycle();
     }
 
     private void initPaint() {

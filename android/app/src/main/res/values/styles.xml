@@ -16,4 +16,15 @@
         <attr name="enable" format="boolean"></attr>
     </declare-styleable>
 
+    <declare-styleable name="WheelPicker">
+        <attr name="unitWidth" format="integer"></attr>
+        <attr name="unitHeight" format="integer"></attr>
+        <attr name="visableNumber" format="integer"></attr>
+        <attr name="selectPosition" format="integer"></attr>
+        <attr name="normalTextSize" format="dimension"></attr>
+        <attr name="selectedTextSize" format="dimension"></attr>
+        <attr name="normalTextColor" format="color"></attr>
+        <attr name="selectedTextColor" format="color"></attr>
+    </declare-styleable>
+
 </resources>
