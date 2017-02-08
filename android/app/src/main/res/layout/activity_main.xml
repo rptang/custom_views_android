@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
+    android:background="#FFF"
     tools:context="com.project.rptang.android.MainActivity">
 
     <FrameLayout
@@ -23,4 +23,5 @@
             <!--rptang:offTrackDrawable="@drawable/jianshihuamian_shuixiangwendu_off1_nor"-->
             <!--rptang:enable="true"/>-->
     </FrameLayout>
+
 </RelativeLayout>
