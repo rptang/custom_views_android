@@ -10,6 +10,10 @@ Android native control widget can not meet the everything during developing proj
 #### function implementation process:
 Before we write the custom view ,you should know about the some method of "View" ,like as onMeasure(),onDraw(),onTouchEvent() which be used one by one under what condition. And then you need to think out a effective way to paint the view you want . Example for this, we want to show a list of text ,and also users can slide the list left or right and one of the list would be selected when the slide stop, of course up and down and other funciton if you want ,you just change something easily if you understand this code . Ok, we just define a "TextItem" which contains coordinate ,content ,index ,and some other attributes .Once UI changing the each of "TextItem" follows the change and execute onDraw() to paint ,which is the effective way I thought .
 
+---
+### Calendar
+#### function implementation process:
+Calendar play a very important role in our daily life, We get the date information from it everyday which help us to plan to do something more effective. Ok, it's time to draw a "Calendar" view by android ,with that ,you will have a personal calendar which belong to you only . Whatever you want to draw ,the first thing is to find a already existed calendar , Analysis of the structure is the second step . Now, it's turn to you ,download the code and do some test to learn how to define a calendar which one belongs to you .
 
 ---
 #### Rendering show
@@ -18,6 +22,8 @@ Before we write the custom view ,you should know about the some method of "View"
 ![image](https://github.com/rptang/custom_views_android/blob/master/switch_off.png)
 ###### wheel_picker:
 ![image](https://github.com/rptang/custom_views_android/blob/master/number_pick.png)
+###### calendar:
+![image](https://github.com/rptang/custom_views_android/blob/master/calendar.png)
 
 License
 -------
