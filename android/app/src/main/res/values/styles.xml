@@ -18,13 +18,33 @@
 
     <declare-styleable name="WheelPicker">
         <attr name="unitWidth" format="integer"></attr>
-        <attr name="unitHeight" format="integer"></attr>
+        <attr name="unitHeight"></attr>
         <attr name="visableNumber" format="integer"></attr>
         <attr name="selectPosition" format="integer"></attr>
-        <attr name="normalTextSize" format="dimension"></attr>
-        <attr name="selectedTextSize" format="dimension"></attr>
-        <attr name="normalTextColor" format="color"></attr>
-        <attr name="selectedTextColor" format="color"></attr>
+        <attr name="normalTextSize"></attr>
+        <attr name="selectedTextSize"></attr>
+        <attr name="normalTextColor"></attr>
+        <attr name="selectedTextColor"></attr>
+    </declare-styleable>
+
+    <attr name="unitHeight" format="dimension" />
+    <attr name="normalTextSize" format="dimension" />
+    <attr name="selectedTextSize" format="dimension" />
+    <attr name="normalTextColor" format="color"></attr>
+    <attr name="selectedTextColor" format="color"></attr>
+
+    <declare-styleable name="WheelView">
+        <attr name="unitHeight"/>
+        <attr name="itemNumber" format="integer"/>
+        <attr name="normalTextColor"/>
+        <attr name="normalTextSize" />
+        <attr name="selectedTextColor"/>
+        <attr name="selectedTextSize"/>
+        <attr name="lineColor" format="color" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="maskHeight" format="dimension"/>
+        <attr name="noEmpty" format="boolean"/>
+        <attr name="isEnable" format="boolean"/>
     </declare-styleable>
 
 </resources>

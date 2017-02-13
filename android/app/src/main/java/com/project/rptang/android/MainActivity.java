@@ -5,16 +5,10 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.project.rptang.android.calendar.entity.CalendarInfo;
-import com.project.rptang.android.calendar.utils.CalendarUtil;
 import com.project.rptang.android.calendar.view.MonthView;
-import com.project.rptang.android.calendar.view.WeekView;
 import com.project.rptang.android.calendar.widget.GridCalendarView;
 import com.project.rptang.android.switch_button.SwitchButton;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import com.project.rptang.android.wheel_datatime.TimePickerLayout;
 
 public class MainActivity extends Activity {
 
@@ -27,6 +21,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         FrameLayout mFrameLayout = (FrameLayout) findViewById(R.id.container);
+        /**
+         * 滑动开关的使用
+         */
         /*//引用方法一
         mSwitchButton = (SwitchButton) mFrameLayout.findViewById(R.id.custom_switch_button);
 
@@ -42,6 +39,9 @@ public class MainActivity extends Activity {
         });
 //        mFrameLayout.addView(mSwitchButton);*/
 
+        /**
+         * 滚动选择器的使用
+         */
         /*WheelPicker mWheelPicker = new WheelPicker(this);
         mWheelPicker.setBackground(getResources().getDrawable(R.drawable.jianshihuamian_shuixiangwendu_shezhi_img2));
         ArrayList<String> dataList = new ArrayList<>();
@@ -63,6 +63,9 @@ public class MainActivity extends Activity {
 //        WeekView mWeekView = new WeekView(this);
 //        mFrameLayout.addView(mWeekView);
 
+        /**
+         * 日历的使用
+         */
 //        Calendar calendar = Calendar.getInstance();
 //        int currYear = calendar.get(Calendar.YEAR);
 //        int currMonth = calendar.get(Calendar.MONTH)+ 1;
@@ -86,5 +89,16 @@ public class MainActivity extends Activity {
                 Toast.makeText(MainActivity.this,"点击了" +  year + "-" + month + "-" + day,Toast.LENGTH_SHORT).show();
             }
         });
+
+        /**
+         * 时间选择器的使用
+         */
+        /*TimePickerLayout timePickerLayout = new TimePickerLayout(this);
+        if (timePickerLayout != null) {
+            timePickerLayout.setSystemTime();
+        }
+        mFrameLayout.addView(timePickerLayout);*/
     }
+
+
 }
