@@ -20,6 +20,10 @@ import android.widget.TextView;
 
 
 import com.project.rptang.android.R;
+import com.zhy.autolayout.AutoFrameLayout;
+import com.zhy.autolayout.AutoLinearLayout;
+import com.zhy.autolayout.utils.AutoLayoutHelper;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -28,6 +32,8 @@ import java.util.List;
  */
 
 public class ViewPagerIndicator extends LinearLayout {
+
+    private final AutoLayoutHelper mHelper = new AutoLayoutHelper(this);
 
     private static final String TAG = "ViewPagerIndicator";
 
@@ -78,7 +84,7 @@ public class ViewPagerIndicator extends LinearLayout {
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.parseColor("#ffffffff"));
         mPaint.setStyle(Paint.Style.FILL);
-        mPaint.setPathEffect(new CornerPathEffect(5));
+//        mPaint.setPathEffect(new CornerPathEffect(5));
 
     }
 
@@ -89,7 +95,8 @@ public class ViewPagerIndicator extends LinearLayout {
 
 //这是三角形的底部宽度，整个屏幕的宽度的1/3*1/6，因为只显示3个组件
         mTriangleWidth = (int) (w / mTabVisiableCount * RADIO_TRIANGLE_WIDTH);
-        mTriangleWidth = Math.min(mTriangleWidth,DIMENSION_TRIANGLE_WIDTH_MAX);
+//        mTriangleWidth = Math.min(mTriangleWidth,DIMENSION_TRIANGLE_WIDTH_MAX);
+        mTriangleWidth = AutoUtils.getPercentWidthSize(19);
 //要想三角形显示在组件的中间下方，左边点得偏移，偏移多少，先定到一个组件的中间位置，在往左移动半个三角形的宽度
         mInitTranslationX = w / mTabVisiableCount / 2 - mTriangleWidth / 2;
 //初始化三角形
@@ -145,11 +152,12 @@ public class ViewPagerIndicator extends LinearLayout {
      */
     private void initTriangle() {
 
-        mTriangleHeigth = mTriangleWidth / 2;
+//        mTriangleHeigth = mTriangleWidth / 2;
+        mTriangleHeigth = AutoUtils.getPercentHeightSize(19);
         mPath = new Path();
         mPath.moveTo(0, 0);
         mPath.lineTo(mTriangleWidth, 0);
-        mPath.lineTo(mTriangleWidth / 2, -mTriangleHeigth + 3);
+        mPath.lineTo(mTriangleWidth / 2, -mTriangleHeigth);
         mPath.close();
 
     }
@@ -203,11 +211,12 @@ public class ViewPagerIndicator extends LinearLayout {
      */
     private View generateTextView(String title) {
         TextView tv = new TextView(getContext());
-        LinearLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        AutoLinearLayout.LayoutParams lp = (AutoLinearLayout.LayoutParams) new AutoLinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         lp.width = getScreenWidth()/mTabVisiableCount;
+        lp.setMargins(0,0,0,AutoUtils.getPercentHeightSize(20));
         tv.setText(title);
-        tv.setGravity(Gravity.CENTER);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        tv.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, AutoUtils.getPercentHeightSize(36));
         tv.setTextColor(COLOR_TEXT_NORMAL);
         tv.setLayoutParams(lp);
         return tv;
@@ -304,4 +313,18 @@ public class ViewPagerIndicator extends LinearLayout {
         }
     }
 
+    @Override
+    public AutoLinearLayout.LayoutParams generateLayoutParams(AttributeSet attrs)
+    {
+        return new AutoLinearLayout.LayoutParams(getContext(), attrs);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (!isInEditMode())
+        {
+            mHelper.adjustChildren();
+        }
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
 }

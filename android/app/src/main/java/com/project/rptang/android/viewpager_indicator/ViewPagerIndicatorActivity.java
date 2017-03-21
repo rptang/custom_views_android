@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.view.Window;
 
 import com.project.rptang.android.R;
+import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ViewPagerIndicatorActivity extends FragmentActivity {
+public class ViewPagerIndicatorActivity extends AutoLayoutActivity {
 
     private ViewPager mViewPager;
     private ViewPagerIndicator mIndicator;
