@@ -8,8 +8,10 @@
     tools:context="com.project.rptang.android.window_manager.WindowManagerActivity">
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="这是app上的内容"/>
 
 </LinearLayout>

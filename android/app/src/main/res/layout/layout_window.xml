@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="top"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:text="阿德"
-    android:background="#0F0">
+    android:textColor="#FFF"
+    android:background="#4CDA64"
+    android:gravity="center">
 
 </TextView>

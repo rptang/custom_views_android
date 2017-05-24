@@ -2,7 +2,9 @@ package com.project.rptang.android.window_manager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -24,8 +26,23 @@ public class WindowManagerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_window_manager);
 
-        init();
+        findViewById(R.id.tvTitle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WindowManagerActivity.this,StatusBarActivity.class));
+                StatusBarCompat.compat(WindowManagerActivity.this, Color.parseColor("#4CDA64"));
+            }
+        });
 
+
+//        init();
+
+    }
+
+    @Override
+    protected void onResume() {
+        StatusBarCompat.compat(WindowManagerActivity.this, getResources().getColor(R.color.colorAccent));
+        super.onResume();
     }
 
     private void init(){
